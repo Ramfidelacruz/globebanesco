@@ -1,0 +1,1001 @@
+<style>
+    /* Estilos CSS de map.html */
+  body::-webkit-scrollbar {
+    display: none;
+    overflow: hidden;
+  }
+  html, body {
+    
+    margin: 0;
+    padding: 0;
+  }
+  .info-container {
+  position: absolute;
+  top: 60%;
+  left: 17%;
+  transform: translate(-50%, -48%);
+  width: 545px;
+  padding: 10px 35px;
+  overflow-y: auto;
+  display: none;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  background-color: #ffffff !important;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  z-index: 1;
+  }
+  
+  
+  .info-title {
+      font-family: Lato;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-bottom: 20px;
+      color: #003d70;
+  }
+  
+    .info-icon {
+      width: 36px;
+      height: 34px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  
+    .info-label {
+      font-weight: 700;
+    }
+  
+    .info-text {
+      margin: 10px 0;
+    
+    }
+    /* style test */
+    #info-title {
+      color: #636363;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+    }
+  
+    p.info-text {
+      color: #636363;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+    }
+    a {
+      color: #FFF;
+      font-family: Lato;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+  }
+    /* style test */
+  
+    .info-section {
+      margin-bottom: 20px;
+     
+    }
+  
+    .info-text-wrapper {
+      font-family: "Lato-Regular", Helvetica;
+    }
+  
+    .info-section-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+  
+    .info-section-title img {
+      width: 36px;
+      height: 34px;
+      margin-right: 10px;
+    }
+  
+    .info-section-title strong {
+      color: #636363;
+  font-family: Lato;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+    }
+    div#info::-webkit-scrollbar {
+      display: none;
+  }
+  .special-padding {
+    padding: 0px 40px;
+    margin-top: -27px;
+    }
+  
+  
+    /*cards style*/
+    .box .group {
+    position: fixed;
+    width: 400px;  /* Ancho de la tarjeta */
+    height: auto;  /* Altura automática basada en el contenido */
+    top: 50%;  /* Centrar verticalmente */
+    right: 155px;  /* Ajustar la distancia desde la derecha */
+    transform: translateY(-50%);  /* Centrar verticalmente */
+    background-color: rgba(211, 157, 157, 0);  /* Fondo semitransparente */
+    border-radius: 10px;  /* Bordes redondeados */
+    padding: 20px;  /* Espaciado interno */
+    z-index: 1000;  /* Asegurar que la tarjeta esté sobre otros elementos */
+  }
+    .box .overlap {
+      position: relative;
+      width: 300px;
+      height: 421px;
+      margin: 0 auto;
+    }
+  
+    .box .overlap-group-wrapper {
+      width: 300px;
+      height: 421px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  
+    .box .overlap-group {
+      position: relative;
+      height: 421px;
+    }
+   
+    .box .rectangle {
+  height: 411px;
+  position: absolute;
+  width: 420px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 13px;
+  padding: 3px;
+  }
+  
+  .box .rectangle::before {
+  content: "";
+    width: 102%;
+    height: 103%;
+    border-radius: 17px;
+    background-image: linear-gradient(var(--rotate), #037A55, #5334B3 100%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -1%;
+    animation: spin 2.5s linear infinite;
+  }
+  
+    .box .polygon {
+      top: 415px;
+      left: 32px;
+      position: absolute;
+      width: 28px;
+      height: 15px;
+    }
+  
+    .box .text-wrapper {
+      position: absolute;
+      top: 31px;
+      left: 60px;
+      background: linear-gradient(180deg, rgb(3, 122, 85) 0%, rgb(83, 52, 179) 100%);
+      -webkit-background-clip: text !important;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /* text-fill-color: transparent; */
+      font-family: "Lato-Bold", Helvetica;
+      font-weight: 700;
+      color: transparent;
+      font-size: 32px;
+      letter-spacing: 0;
+      line-height: normal;
+      white-space: nowrap;
+    }
+  
+    .box .div {
+      position: absolute;
+      top: 88px;
+      left: 31px;
+      font-family: "Lato-Bold", Helvetica;
+      font-weight: 700;
+      color: #037a55;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: normal;
+      white-space: nowrap;
+    }
+  
+    .box .banesco-banesco-com {
+      position: absolute;
+      top: 122px;
+      left: 31px;
+      font-family: "Lato-Regular", Helvetica;
+      font-weight: 400;
+      color: #6c6c6c;
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+  
+    .box .span {
+      font-family: "Lato-Regular", Helvetica;
+      font-weight: 700;
+      color: #6c6c6c;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+  
+    .box .text-wrapper-2 {
+      text-decoration: none;
+      color: #6C6C6C;
+    }
+  
+    .box .carbon-location {
+      position: absolute;
+      top: 31px;
+      left: 31px;
+      width: 36px;
+      height: 34px;
+    }
+  
+    .box .vector {
+      position: absolute;
+      top: 0;
+      left: -10px;
+      width: 36px;
+      height: 34px;
+    }
+    a {
+    color: #636363;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+    .box .img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 34px;
+    }
+  
+    /*cards style end*/
+    .lineas-negocio-title {
+  position: absolute;
+  top: 50%;
+  right: 90px;
+  transform: translateY(-50%);
+  font-family: Lato;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: linear-gradient(90deg, #037A55 0%, #5334B3 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: right;
+  padding: 10px;
+  margin-top: -20px;
+      
+  box-sizing: border-box;
+  z-index: 1;
+  text-orientation: mixed;
+  }
+  .lineas-negocio-icon {
+  position: absolute;
+  top: calc(50% - 120px);
+  right: 90px;
+  transform: translateY(-50%);
+  width: 78.571px;
+  height: 100px;
+  z-index: 1;
+  }
+  .selected-country {
+  position: absolute;
+  top: calc(49% + 60px);
+  right: 90px;
+  transform: translateY(-50%);
+  font-family: Lato;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: right;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 1;
+  color: #636363;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .globe-container {
+    width: 10%;
+  }
+  
+  .info-card-container {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .info-container {
+    margin-bottom: 20px;
+  }
+  /*tablet*/
+  
+    /*@media (min-width: 768px) and (max-width: 1024px) */@media (min-width: 1024px) and (max-width: 1366px){
+     
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Asegura que el contenedor use todo el ancho disponible */
+    min-height: 100vh; /* Altura mínima para cubrir toda la altura de la ventana */
+    padding-bottom: 50px; /* Espacio adicional en la parte inferior */
+    overflow: hidden !important; /* Asegura que el contenido pueda extenderse más allá del tamaño inicial */
+  }
+  
+  svg {
+    width: 47px;
+  }
+  
+  .selected-country {
+        font-size: 1.4rem;
+        top: calc(10% + 54px);
+        right: 385px;
+    }
+  
+    .lineas-negocio-icon {
+        position: absolute;
+        top: calc(6% - 31px);
+        right: 310px;
+        transform: translateY(60%);
+        width: 43px;
+        height: 40px;
+        z-index: 1;
+    }
+  
+  .lineas-negocio-title {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    order: 2; /* Segundo en visualizarse, después del icono */
+    text-align: center; /* Centra el texto de la línea de negocio */
+    font-size: 2.2rem;
+    top: 11%;
+    right: -4px;
+  }
+  
+  .globe-container {
+    width: 95%; /* Ajusta el ancho para centrar el mapa */
+    order: 3; /* Tercero en visualizarse, después del título */
+    display: flex;
+    justify-content: center; /* Centra el mapa horizontalmente */
+    padding: 0; /* Elimina cualquier padding que pueda estar afectando */
+    margin: 0 auto; /* Asegura que no haya márgenes adicionales */
+  }
+  
+  .info-card-container {
+    width: 95%; /* Ajusta el ancho de la tarjeta */
+    order: 4; /* Cuarto en visualizarse, después del mapa */
+    margin-top: 20px; /* Espacio entre el mapa y la tarjeta */
+    display: flex;
+    justify-content: center; /* Centra la tarjeta horizontalmente */
+  }
+  .info-container {
+        left: 24%;
+        margin-top: 130px;
+        width: 420px;
+    }
+  
+    }
+  /*tablet END*/
+  /*Mobile*/
+  @media (max-width: 575.98px) {
+    body {
+      overflow-y: auto;
+      height: 100%;  /* Cambiado de auto a 100% */
+      position: relative;  /* Añadido */
+    }
+  
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh; /* Mantiene el mínimo a la altura de la ventana pero permite expandirse */
+    padding-bottom: 50px;
+    overflow: visible; /* Permite que los elementos se extiendan más allá del contenedor si es necesario */
+  }
+  svg {
+    width: 30px;
+  }
+  
+  .selected-country {
+        font-size: 1.1rem;
+        top: calc(3% + 42px);
+        right: 50%;
+        transform: translateX(50%);
+        text-align: center;
+    }
+  
+    .lineas-negocio-icon {
+        position: absolute;
+        top: calc(2% - 20px);
+        right: 20%;
+        transform: translate(50%, -50%);
+        width: 15px;
+        height: 15px;
+        z-index: 1;
+    }
+  
+  .lineas-negocio-title {
+        width: 100%;
+        order: 2;
+        text-align: center;
+        font-size: 1.5rem;
+        top: 5%;
+        right: 0;
+    }
+  
+  .globe-container {
+    width: 100%;
+    order: 3;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+  }
+  
+  .info-card-container {
+    width: 113%;
+    order: 4;
+    margin-top: -178px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .info-container {
+    position: relative; /* Cambio para mejor control de posición */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 73px;
+    width: 80%;
+    max-height: none; /* Elimina la altura máxima */
+    overflow-y: visible; /* Permite el desplazamiento dentro del contenedor si es necesario */
+    margin-bottom: -15px;
+  }
+  .info-section-title strong {
+    color: #636363;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  p.info-text {
+    font-size: 14px;
+  }
+  .info-title{
+    font-size: 25px;
+    margin-top: 18px;
+  
+  }
+  }
+  
+  /*Mobile END*/
+  
+  /* MacBook Media Query */
+  @media screen and (min-width: 1280px) and (max-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
+  html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  }
+  /* Ajustes para la tarjeta de información */
+  .info-container {
+    left: 15%;
+    width: 450px;
+    margin-top: 20px;
+  }
+  
+  /* Ajustes para la tarjeta del grupo */
+  .box .group {
+    right: 120px;
+    width: 380px;
+  }
+  
+  .box .rectangle {
+    width: 380px;
+    height: 350px;
+  }
+  
+  .box .overlap {
+    height: 350px;
+  }
+  
+  .box .overlap-group-wrapper {
+    height: 350px;
+  }
+  
+  .box .overlap-group {
+    height: 350px;
+  }
+  
+  /* Ajustes para los títulos y textos */
+  .lineas-negocio-title {
+    right: 64px;
+    font-size: 29px;
+  }
+  
+  .selected-country {
+    right: 70px;
+    font-size: 22px;
+  }
+  
+  .lineas-negocio-icon {
+    right: 70px;
+    width: 65px;
+    height: 85px;
+  }
+  
+  /* Ajustes para el contenedor principal */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  }
+  
+  /* MacBook Pro de mayor resolución */
+  /* Ajustes específicos para resoluciones comunes de MacBook */
+  @media screen and (min-device-width: 1280px) and (max-device-width: 2880px) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) {
+  html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  }
+  .info-container {
+        left: 16%;
+        width: 376px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        overflow-y: auto;
+        z-index: 10;
+    }
+  
+  .box .group {
+    right: 100px;  /* Ajusta la posición de cualquier otro elemento que pueda estar afectando */
+    width: 350px;  /* Ajusta el ancho si es necesario */
+  }
+  
+  .special-padding{
+    height: 600px;
+  }
+  
+  }
+  /* table air de mayor resolución */
+  /* iPad Air */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .info-container {
+        left: 24%;
+        margin-top: 74px;
+        width: 349px;
+    }
+    .lineas-negocio-icon {
+        position: absolute;
+        top: calc(6% - 34px);
+        right: 208px;
+        transform: translateY(60%);
+        width: 43px;
+        height: 40px;
+        z-index: 1;
+    }
+  
+  
+  p.info-text {
+    color: #636363;
+    font-family: Lato;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 317px;
+  }
+  /* Ajustes para los títulos y textos */
+  .lineas-negocio-title {
+    right: 64px;
+    font-size: 29px;
+  }
+  
+  .selected-country {
+    right: 70px;
+    font-size: 22px;
+  }
+  
+  .lineas-negocio-icon {
+    right: 70px;
+    width: 65px;
+    height: 85px;
+  }
+  svg {
+    width: 30px;
+  }
+  
+  .selected-country {
+        font-size: 1.1rem;
+        top: calc(8% + 42px);
+        right: 50%;
+        transform: translateX(50%);
+        text-align: center;
+        font-size: 1.5rem;
+    }
+  
+    .lineas-negocio-icon {
+        position: absolute;
+        top: calc(7% - 20px);
+        right: 28%;
+        transform: translate(50%, -50%);
+        width: 5px;
+        height: 15px;
+        z-index: 1;
+    }
+    .lineas-negocio-title {
+        width: 100%;
+        order: 2;
+        text-align: center;
+        font-size: 2.5rem;
+        top: 9%;
+        right: 0;
+    }
+  .globe-container {
+    width: 100%;
+    order: 3;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+  }
+  }
+  /* Prevenir scroll y zoom */
+  #globeViz {
+    touch-action: none;
+    -ms-touch-action: none;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #globeViz canvas {
+    touch-action: none;
+    -ms-touch-action: none;
+    pointer-events: none;
+  }
+
+  .globe-container {
+    touch-action: none;
+    -ms-touch-action: none;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Prevenir scroll en el body cuando se interactúa con el globo */
+  /* body.no-scroll {
+    overflow: hidden;
+  } */
+
+  /* Asegurar que el contenedor del globo sea visible */
+  .globe-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  /* Prevenir eventos de pointer en el canvas */
+  #globeViz canvas {
+    pointer-events: none;
+  }
+</style>
+  
+  <script src="https://unpkg.com/globe.gl"></script>
+  
+  <body>
+   
+  
+    <!-- Contenido principal -->
+    <div class="lineas-negocio-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="79" height="100" viewBox="0 0 79 100" fill="none">
+        <path d="M39.2857 0C28.8703 0.0122874 18.885 4.15525 11.5201 11.5201C4.15528 18.8849 0.0123121 28.8703 2.46578e-05 39.2857C-0.00955155 47.7968 2.77041 56.0764 7.91431 62.8571C7.91431 62.8571 8.98574 64.2679 9.16074 64.4714L39.2857 100L69.425 64.4536C69.5822 64.2643 70.6572 62.8571 70.6572 62.8571L70.6607 62.8464C75.8012 56.0682 78.5797 47.7927 78.5715 39.2857C78.5592 28.8703 74.4162 18.8849 67.0514 11.5201C59.6865 4.15525 49.7012 0.0122874 39.2857 0ZM39.2857 53.5714C36.4603 53.5714 33.6983 52.7336 31.349 51.1638C28.9998 49.5941 27.1687 47.363 26.0875 44.7526C25.0062 42.1423 24.7233 39.2699 25.2745 36.4987C25.8257 33.7276 27.1863 31.1821 29.1842 29.1842C31.1821 27.1863 33.7276 25.8257 36.4987 25.2745C39.2699 24.7233 42.1423 25.0062 44.7526 26.0874C47.363 27.1687 49.5941 28.9997 51.1639 31.349C52.7336 33.6983 53.5715 36.4603 53.5715 39.2857C53.5667 43.0731 52.0601 46.704 49.382 49.382C46.704 52.0601 43.0731 53.5667 39.2857 53.5714Z" fill="#003d70"/>
+      </svg>
+    </div>
+    <div class="lineas-negocio-title">Nuestra Presencia<br> en el Mundo</div>
+    <div class="selected-country"></div>
+    <div class="container">
+      <div class="globe-container">
+        <div id="globeViz"></div>
+      </div>
+      <div class="info-card-container">
+        <div id="info" class="info-container"></div>
+      </div>
+    </div>
+  
+  
+    <script>
+      const markerSvg = `<svg viewBox="-4 0 48 48">
+        <path fill="currentColor" d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"></path>
+        <circle fill="white" cx="14" cy="14" r="5"></circle>
+      </svg>`;
+  
+      // Specific data for countries
+      const countriesData = [
+        { name: "Curazao", lat: 14.1696, lng: -70.9900, size: 10, color: '#037a55' },
+        { name: "Panamá", lat: 11.537981, lng: -80.782127, size: 10, color: '#5334b3' }, 
+        { name: "Puerto Rico", lat: 18.2208, lng: -66.5901, size: 10, color: '#037a55' },
+        { name: "República Dominicana", lat: 18.7357, lng: -70.1627, size: 10, color: '#5334b3', hoverColor: 'red' },
+       { name: "USA", lat: 27.9944, lng: -81.7603, size: 10, color: '#5334b3' },
+        { name: "Venezuela", lat: 8.4238, lng: -68.5897, size: 10, color: '#037a55' }
+      ];
+      const caribbeanCoords = { lat: 15.8, lng: -70.0 };
+  
+      // Ajustar las coordenadas para centrar mejor los marcadores
+      const initialCoords = { lat: 20, lng: -80 };  // Coordenadas finales
+      const startCoords = { lat: 0, lng: 0 };  // Coordenadas iniciales
+  
+      // Variable para rastrear el marcador activo
+      let activeMarker = null;
+  
+      // Cargar los datos del archivo data.json
+      fetch('https://banescointernacional.com/wp-content/json-info-map/data.json')
+        .then(response => response.json())
+        .then(data => {
+          const paises = data.paises;
+  
+          const myGlobe = Globe()
+          .globeImageUrl('https://banescointernacional.com/wp-content/uploads/2024/09/maps.png')
+          .backgroundColor('#EEE')
+            .pointOfView(startCoords, 0)  // Comienza en una posición inicial
+            .htmlElementsData(countriesData)
+            .htmlElement(d => {
+              const el = document.createElement('div');
+              el.innerHTML = markerSvg;
+              el.style.color = '#555555';
+              el.style.width = `35px`;
+              el.style.height = `35px`;
+              el.style['pointer-events'] = 'auto';
+              el.style.cursor = 'pointer';
+  
+              // Activar inicialmente el marcador de Venezuela
+              if (d.name === "Panamá") {
+                setTimeout(() => {
+                  el.click(); // Simular click en el marcador de Venezuela
+                  el.style.color = '#003d70';
+                  el.style.width = '45px';
+                  el.style.height = '45px';
+                  activeMarker = el;
+                }, 3000); // Esperar 3 segundos después de la carga inicial
+              }
+  
+              // Modificar evento de hover para cambiar el color y tamaño
+              el.onmouseover = () => {
+                if (activeMarker !== el) {  // Solo aplicar si no es el marcador activo
+                  el.style.color = '#444444';  // Cambiar a color azul
+                  el.style.width = '40px';  // Aumentar tamaño a 20px
+                  el.style.height = '40px';  // Aumentar tamaño a 20px
+                }
+              };
+  
+              // Agregar evento onmouseout para restablecer el estilo
+              el.onmouseout = () => {
+                if (activeMarker !== el) {  // Solo restablecer si no es el marcador activo
+                  el.style.color = '#555555';  // Restablecer a color verde
+                  el.style.width = '35px';  // Restablecer tamaño a 12px
+                  el.style.height = '35px';  // Restablecer tamaño a 12px
+                }
+              };
+  
+              // Modificar evento de click
+              el.onclick = () => {
+                if (activeMarker !== el) {
+                  if (activeMarker) {
+                    // Restablecer el marcador anterior
+                    activeMarker.style.color = '#555555';  // Color verde
+                    activeMarker.style.width = '35px';
+                    activeMarker.style.height = '35px';
+                  }
+                  // Activar el nuevo marcador
+                  el.style.color = '#003d70';  // Cambiar a color #5334b3
+                  el.style.width = '45px';  // Aumentar tamaño
+                  el.style.height = '45px';  // Aumentar tamaño
+                  activeMarker = el;  // Actualizar el marcador activo
+                }
+  
+                let currentCountry = null;
+  
+                if (currentCountry !== d.name) {
+                  currentCountry = d.name;
+                  myGlobe.polygonAltitude(0.06);
+                  myGlobe.polygonCapColor(feat => feat.properties.ISO_A2 === 'DO' ? d.hoverColor : 'transparent');
+  
+                  // Buscar la información del país en el archivo data.json
+                  const country = paises.find(pais => pais.nombre === d.name);
+                  if (country) {
+                    let infoHtml = `<h2 class="info-title">${d.name}</h2>`;
+  
+                    if (country.banco) {
+                      infoHtml += `
+                        <div class="info-section">
+                          <div class="info-section-title">
+                            <img src="https://banescointernacional.com/wp-content/uploads/2024/11/ph_bank-bold-1.svg" alt="Banco" class="info-icon ph-bank-bold">
+                            <strong>Banesco Banco</strong>
+                          </div>
+                          <div class="info-text-wrapper">
+                            <p class="info-text"><span class="text-direccion" id="info-title">Dirección:</span> ${country.banco.direccion}</p>
+                            <p class="info-text"><span class="text-telefono" id="info-title">Teléfonos:</span> ${country.banco.telefonos.join(', ')}</p>
+                            ${country.banco.correo && country.banco.correo !== "none" && !country.banco.correo.includes("http") ? `<p class="info-text"><span class="text-correo" id="info-title">Correo: </span>${country.banco.correo}</p>` : ''}
+                            ${country.banco.paginaWeb && country.banco.paginaWeb !== "none" ? `<p class="info-text"><span class="text-web" id="info-title">Web:</span> <a href="${country.banco.paginaWeb}">${country.banco.paginaWeb}</a></p>` : ''}
+                          </div>
+                        </div>
+                      `;
+                    }
+  
+                    if (country.seguros) {
+                      infoHtml += `
+                        <div class="info-section">
+                          <div class="info-section-title">
+                            <img src="https://banescointernacional.com/wp-content/uploads/2024/11/streamline_insurance-hand-1.svg" alt="Seguros" class="info-icon streamline-insurance">
+                            <strong>Banesco Seguros</strong>
+                          </div>
+                          <div class="info-text-wrapper">
+                            <p class="info-text"><span class="text-direccion-seguro" id="info-title">Dirección:</span> ${country.seguros.direccion}</p>
+                            <p class="info-text"><span class="text-telefono-seguro" id="info-title">Teléfonos:</span> ${country.seguros.telefonos.join(', ')}</p>
+                            ${country.banco.correo && country.banco.correo !== "none" && !country.banco.correo.includes("http") ? `<p class="info-text"><span class="text-correo" id="info-title">Correo:</span> ${country.banco.correo}</p>` : ''}
+                            ${country.banco.paginaWeb && country.banco.paginaWeb !== "none" ? `<p class="info-text"><span class="text-web" id="info-title">Web:</span> <a href="${country.banco.paginaWeb}">${country.banco.paginaWeb}</a></p>` : ''}                          </div>
+                        </div>
+                      `;
+                    }
+  
+                    if (country.mediosDePago) {
+  infoHtml += `
+    <div class="info-section">
+      <div class="info-section-title">
+        <img src="https://banescointernacional.com/wp-content/uploads/2024/11/streamline_payment-cash-out-3-1.svg" alt="Medios de Pago" class="info-icon streamline-payment">
+        <strong>Todoticket (Medios de Pago)</strong>
+      </div>
+      <div class="info-text-wrapper">
+        <p class="info-text"><span class="text-direccion-pago" id="info-title">Dirección: </span>${country.mediosDePago.direccion}</p>
+        <p class="info-text"><span class="text-telefono-pago" id="info-title">Teléfonos: </span>${country.mediosDePago.telefonos.join(', ')}</p>
+        ${country.mediosDePago.paginaWeb && country.mediosDePago.paginaWeb !== "none" ? `<p class="info-text"><span class="text-web" id="info-title">Web:</span> <a href="${country.mediosDePago.paginaWeb}">${country.mediosDePago.paginaWeb}</a></p>` : ''}
+      </div>
+    </div>
+  `;
+  }
+  if (country.oficinasRepresentacion) {
+  infoHtml += `
+    <div class="info-section">
+      <div class="info-section-title">
+        <img src="https://banescointernacional.com/wp-content/uploads/2024/11/Vector-1.svg" alt="Oficinas de Representación" class="info-icon streamline-office">
+        <strong>Oficinas de Representación</strong>
+      </div>
+      <div class="info-text-wrapper">
+        ${country.oficinasRepresentacion.paginaWeb && country.oficinasRepresentacion.paginaWeb !== "none" ? `<p class="info-text"><span class="text-web" id="info-title">Web:</span> <a href="${country.oficinasRepresentacion.paginaWeb}">${country.oficinasRepresentacion.paginaWeb}</a></p>` : ''}
+      </div>
+    </div>
+  `;
+  }
+                    document.getElementById('info').innerHTML = infoHtml;
+                    document.getElementById('info').style.display = 'block';
+                    document.getElementById('info').className = 'info-container' + (country.specialPadding ? ' special-padding' : '');
+                  } else {
+                    document.getElementById('info').innerHTML = `<h2 class="info-title">${d.name}</h2><p class="info-text">No hay información disponible.</p>`;
+                    document.getElementById('info').style.display = 'block';
+                  }
+  
+                  // Cargar los datos del archivo web.json para la tarjeta del lado derecho
+                 
+                } else {
+                  currentCountry = null;
+                  myGlobe.polygonAltitude(0.01);
+                  myGlobe.polygonCapColor(() => 'transparent');
+                  document.getElementById('info').style.display = 'none';
+                  document.getElementById('countryCard').style.display = 'none';
+                }
+  
+                // Actualizar el nombre del país seleccionado
+                document.querySelector('.selected-country').textContent = d.name;
+              };
+  
+              return el;
+            })
+            .polygonAltitude(0.01)
+            .polygonCapColor(() => 'transparent')
+            .polygonsTransitionDuration(300)
+            .enablePointerInteraction(false)
+            (document.getElementById('globeViz'));
+            
+  
+          
+  
+          // Función para animar la transición de la vista del globo
+          function animateToPointOfView(targetCoords, duration) {
+            const startTime = Date.now();
+            const endTime = startTime + duration;
+            const startLat = myGlobe.pointOfView().lat;
+            const startLng = myGlobe.pointOfView().lng;
+  
+            function update() {
+              const currentTime = Date.now();
+              const timeElapsed = currentTime - startTime;
+              if (currentTime >= endTime) {
+                myGlobe.pointOfView(targetCoords, 0);  // Asegura que termina en la posición exacta
+                return;
+              }
+  
+              const t = timeElapsed / duration;  // Normaliza el tiempo transcurrido
+              const lat = startLat + t * (targetCoords.lat - startLat);
+              const lng = startLng + t * (targetCoords.lng - startLng);
+              myGlobe.pointOfView({ lat, lng }, 0);
+  
+              requestAnimationFrame(update);
+            }
+  
+            update();
+          }
+  
+          // Iniciar la animación hacia las coordenadas finales
+          animateToPointOfView(initialCoords, 3000);  // 3000 ms = 3 segundos
+        })
+        .catch(error => {
+          console.error('Error al cargar el archivo data.json:', error);
+        });
+        
+        
+  
+      // Deshabilitar completamente el zoom y los controles de navegación
+      myGlobe.controls().enabled = false;
+      myGlobe.controls().enableZoom = false;
+      myGlobe.controls().enableRotate = false;
+      myGlobe.controls().enablePan = false;
+      myGlobe.controls().autoRotate = false;
+  
+      // Prevenir el evento de rueda del mouse en el contenedor del globo
+      document.getElementById('globeViz').addEventListener('wheel', function(event) {
+          event.preventDefault();
+          event.stopPropagation();
+      }, { passive: false });
+  
+      // Agregar clase no-scroll al body
+      // document.body.classList.add('no-scroll');
+
+      // Prevenir scroll en múltiples niveles
+      const preventScroll = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      };
+
+      document.getElementById('globeViz').addEventListener('wheel', preventScroll, { passive: false });
+      document.getElementById('globeViz').addEventListener('touchmove', preventScroll, { passive: false });
+      document.querySelector('.globe-container').addEventListener('wheel', preventScroll, { passive: false });
+      document.querySelector('.globe-container').addEventListener('touchmove', preventScroll, { passive: false });
+  
+      </script>
+  

@@ -900,6 +900,7 @@ infoHtml += `
           .polygonsTransitionDuration(300)
           .enablePointerInteraction(false)
           (document.getElementById('globeViz'));
+          
 
         // Función para animar la transición de la vista del globo
         function animateToPointOfView(targetCoords, duration) {
@@ -929,6 +930,16 @@ infoHtml += `
 
         // Iniciar la animación hacia las coordenadas finales
         animateToPointOfView(initialCoords, 3000);  // 3000 ms = 3 segundos
+
+        const controls = myGlobe.controls();
+        controls.enableZoom = false; // Deshabilitar zoom completamente
+        controls.mouseButtons.RIGHT = undefined; // Deshabilitar botón derecho
+        controls.mouseButtons.MIDDLE = undefined; // Deshabilitar botón medio
+        controls.mouseButtons.LEFT = undefined; // Deshabilitar botón izquierdo
+        controls.touches.ONE = undefined; // Deshabilitar toque simple
+        controls.touches.TWO = undefined; // Deshabilitar toque doble
+        /* controls.autoRotate = false; */
+        controls.dampingFactor = 0.1;
       })
       .catch(error => {
         console.error('Error al cargar el archivo data.json:', error);
